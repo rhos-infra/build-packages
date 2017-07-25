@@ -12,8 +12,8 @@
       - "graphviz"
       - "http://mirror.centos.org/centos/7/os/x86_64/Packages/python-sphinx-1.1.3-11.el7.noarch.rpm"
       - "selinux-policy-devel"
-      - "python2-zope-interface"
-      - "python2-twisted"
+      - "http://mirror.centos.org/centos/7/os/x86_64/Packages/python-zope-interface-4.0.5-4.el7.x86_64.rpm"
+      - "http://mirror.centos.org/centos/7/os/x86_64/Packages/python-twisted-core-12.2.0-4.el7.x86_64.rpm"
 
 - name: Clone OVS
   git:
