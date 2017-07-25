@@ -1,0 +1,26 @@
+---
+- name: add hosts to host list
+  hosts: localhost
+  gather_facts: no
+  tasks:
+     - name: add each host
+       add_host:
+          name: "controller-0"
+          groups: "undercloud"
+          ansible_ssh_user: "{{ install.host.username }}"
+          ansible_ssh_host: "{{ install.host.ip }}"
+          ansible_ssh_private_key_file: "{{ install.host.key_file }}"
+       when: (install.host is defined) and (install.host.ip is defined) and (install.host.username is defined) and (install.host.key_file is defined)
+
+
+- name: Build packages from source
+  hosts: undercloud
+  tasks:
+      - name: Setting up repositories
+        include_role:
+            name: setup_repos
+
+      - name: Create openvswitch RPMs from ovs source code
+        include_role:
+            name: build_ovs
+        when: install.build.ovs|default(False)
