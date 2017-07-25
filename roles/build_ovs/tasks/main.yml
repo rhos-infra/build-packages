@@ -6,7 +6,7 @@
     name: "{{ item }}"
     state: present
   with_items:
-      - "dh-autoreconf"
+      - "http://dl.fedoraproject.org/pub/epel/7/x86_64/d/dh-autoreconf-13-2.el7.noarch.rpm"
       - "groff"
       - "libcap-ng-devel"
       - "graphviz"
