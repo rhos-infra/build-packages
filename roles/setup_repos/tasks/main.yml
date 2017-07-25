@@ -23,5 +23,5 @@
 
 - name: Execute rhos-release to install rhos repos
   become: yes
-  shell: "{{ rhos_release_bin }} -x; {{ rhos_release_bin }} {{ install.component.version }}"
+  shell: "{{ rhos_release_bin }} -x; {{ rhos_release_bin }} {{ install.version }}"
   changed_when: true

@@ -13,3 +13,7 @@ subparsers:
                       help: 'Build OVS from source and inject it into the deployment'
                       required: False
                       default: True
+                  version:
+                      type: Value
+                      help: 'OpenStack Release (5,6,7,8,9,10,11)'
+                      required: True
