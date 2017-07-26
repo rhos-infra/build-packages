@@ -1,12 +1,20 @@
 ---
 # Required for building OVS
-- name: Install packages for OVS building
+- name: Install EPEL and RepoForge
   become: yes
   yum:
     name: "{{ item }}"
     state: present
   with_items:
       - "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+      - "http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm"
+
+- name: Install packages for OVS building
+  become: yes
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
       - "dh-autoreconf"
       - "http://mirror.centos.org/centos/7/os/x86_64/Packages/groff-1.22.2-8.el7.x86_64.rpm"
       - "libcap-ng-devel"
