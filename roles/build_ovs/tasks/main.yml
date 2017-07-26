@@ -6,6 +6,8 @@
     name: "{{ item }}"
     state: present
   with_items:
+      - "http://dl.fedoraproject.org/pub/epel/7/x86_64/d/debhelper-9.20150628-4.el7.noarch.rpm"
+      - "http://dl.fedoraproject.org/pub/epel/7/x86_64/c/cdbs-0.4.150-3.el7.noarch.rpm"
       - "http://dl.fedoraproject.org/pub/epel/7/x86_64/d/dh-autoreconf-13-2.el7.noarch.rpm"
       - "http://mirror.centos.org/centos/7/os/x86_64/Packages/groff-1.22.2-8.el7.x86_64.rpm"
       - "libcap-ng-devel"
