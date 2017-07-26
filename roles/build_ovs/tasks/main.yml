@@ -1,12 +1,17 @@
 ---
 # Required for building OVS
+- name: Install EPEL
+  become: yes
+  yum:
+    name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+    state: present
+
 - name: Install packages for OVS building
   become: yes
   yum:
     name: "{{ item }}"
     state: present
   with_items:
-      - "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
       - "dh-autoreconf"
       - "http://mirror.centos.org/centos/7/os/x86_64/Packages/groff-1.22.2-8.el7.x86_64.rpm"
       - "libcap-ng-devel"
