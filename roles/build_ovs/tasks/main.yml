@@ -42,6 +42,12 @@
   retries: 3
   delay: 60
 
+- name: Set high epoch
+  shell: |
+      sed -i '/License/a Epoch: 2' {{ ansible_env.HOME }}/ovs/rhel/openvswitch-fedora.spec.in
+      setenforce 0
+      sed -i s/enforcing/permissive/g /etc/selinux/config
+
 - name: Build OVS
   args:
       chdir: "{{ ansible_env.HOME }}/ovs"
