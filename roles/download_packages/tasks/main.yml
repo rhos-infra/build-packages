@@ -1,0 +1,22 @@
+---
+# Create a directory to hold the RPMs
+- name: Create '/patched_rpms' directory`
+  become: yes
+  file:
+    path=/patched_rpms
+    state=directory
+    mode=0777
+
+- name: Download packages
+  url: "{{ item }}"
+  dest: "/patched_rpms"
+  with_items: "{{ install.build.download.pkgs }}"
+
+- name: Create repository for patched RPMs
+  shell: "createrepo /patched_rpms;"
+
+- name: Setup repository in /etc/yum.repos.d
+  become: yes
+  template:
+    src='downloaded_pkgs.j2'
+    dest='/etc/yum.repos.d/downloaded_pkgs.repo'
