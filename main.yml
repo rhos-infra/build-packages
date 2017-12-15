@@ -27,10 +27,10 @@
 
 # Note: when this plugin is used with infrared, the installation
 #       of the packages will be performed by infrared.
-- name: Download packages
-  hosts: undercloud
-  tasks:
-      - name: Download packages
-        include_role:
-            name: download_packages
-        when: install.build.download.pkgs|default(False)
+# - name: Download packages
+#  hosts: undercloud
+#  tasks:
+#      - name: Download packages
+#        include_role:
+#            name: download_packages
+#        when: install.build.download.pkgs|default(False)
