@@ -15,10 +15,14 @@ subparsers:
                       default: True
                   version:
                       type: Value
-                      help: 'OpenStack Release (5,6,7,8,9,10,11)'
-                      required: True
-            - title: Download specified packages
+                      help: 'OpenStack release number'
+            - title: Install packages
               options:
-                  download-pkgs:
+                  packages:
+                      type: ListValue
+                      help: 'Comma seperated list of packages to install'
+            - title: Download packages
+              options:
+                  download-packages:
                       type: ListValue
                       help: 'Comma seperated list of packages to download'

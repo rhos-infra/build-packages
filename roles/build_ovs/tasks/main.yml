@@ -64,7 +64,10 @@
     mode=0777
 
 - name: Copy new generated RPMs to /patched_rpms
-  shell: "cp {{ ansible_env.HOME }}/ovs/rpm/rpmbuild/RPMS/x86_64/*.rpm /patched_rpms/"
+  shell: "cp {{ ansible_env.HOME }}/ovs/rpm/rpmbuild/RPMS/{{ item }}/*.rpm /patched_rpms/"
+  with_items:
+      - 'noarch'
+      - 'x86_64'
 
 - name: Create repository for patched RPMs
   shell: "createrepo /patched_rpms;"
