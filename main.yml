@@ -14,23 +14,30 @@
 
 
 - name: Build packages from source
-  hosts: undercloud
+  hosts: localhost
   tasks:
       - name: Setting up repositories
         include_role:
             name: setup_repos
+        when: install.build.ovs|default(False)
 
       - name: Create openvswitch RPMs from ovs source code
         include_role:
             name: build_ovs
         when: install.build.ovs|default(False)
 
-# Note: when this plugin is used with infrared, the installation
-#       of the packages will be performed by infrared.
-# - name: Download packages
-#  hosts: undercloud
-#  tasks:
-#      - name: Download packages
-#        include_role:
-#            name: download_packages
-#        when: install.build.download.pkgs|default(False)
+- name: Download packages
+  hosts: localhost
+  tasks:
+      - name: Download packages
+        include_role:
+            name: download_packages
+        when: install.download|default(False)
+
+- name: Install packages
+  hosts: localhost
+  tasks:
+      - name: Install packages
+        include_role:
+            name: install_packages
+        when: install.packages|default(False)
