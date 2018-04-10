@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4cf514d_33c8b0ea",
+        "filename": "plugin.spec",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1006664
+      },
+      "writtenOn": "2018-04-10T11:04:43Z",
+      "side": 1,
+      "message": "maybe just as download-packages  this should be install-packages?",
+      "range": {
+        "startLine": 21,
+        "startChar": 18,
+        "endLine": 21,
+        "endChar": 26
+      },
+      "revId": "d36a289ea1ba03d8679caa594a3d65cb4efb114a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
