@@ -1,0 +1,7 @@
+Code-Review+2: David Sariel <dsariel@redhat.com>
+Verified+1: Arie Bregman <abregman@redhat.com>
+Submitted-by: Arie Bregman <abregman@redhat.com>
+Submitted-at: Tue, 10 Apr 2018 07:12:25 -0400
+Reviewed-on: https://review.gerrithub.io/402308
+Project: rhos-infra/build-packages
+Branch: refs/heads/master
