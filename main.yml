@@ -29,6 +29,11 @@
 - name: Download packages
   hosts: undercloud
   tasks:
+      - name: Setting up repositories
+        include_role:
+            name: setup_repos
+        when: install.download|default(False)
+
       - name: Download packages
         include_role:
             name: download_packages
