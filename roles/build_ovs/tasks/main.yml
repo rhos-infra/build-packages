@@ -26,6 +26,8 @@
       - "http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-Sub-Exporter-0.986-2.el7.noarch.rpm"
       - "http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-Package-Generator-0.103-14.el7.noarch.rpm"
       - "http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-IO-String-1.08-19.el7.noarch.rpm"
+      - "http://mirror.centos.org/centos/7/os/x86_64/Packages/unbound-1.6.6-1.el7.x86_64.rpm"
+      - "http://mirror.centos.org/centos/7/os/x86_64/Packages/unbound-devel-1.6.6-1.el7.x86_64.rpm"
       - "http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-File-Remove-1.52-6.el7.noarch.rpm"
       - "libcap-ng-devel"
       - "graphviz"
