@@ -20,6 +20,7 @@
       - "python-devel"
       - "rpm-build"
       - "createrepo"
+      - "gcc-c++"
       - "http://mirror.centos.org/centos/7/os/x86_64/Packages/groff-1.22.2-8.el7.x86_64.rpm"
       - "http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-Font-TTF-1.02-3.el7.noarch.rpm"
       - "http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-Parse-RecDescent-1.967009-5.el7.noarch.rpm"
