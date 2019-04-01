@@ -12,7 +12,7 @@ subparsers:
                       type: Bool
                       help: 'Build OVS from source and inject it into the deployment'
                       required: False
-                      default: True
+                      default: False
                   version:
                       type: Value
                       help: 'OpenStack release number'
