@@ -1,20 +1,23 @@
 ---
 # Required for building OVS
-- name: Install EPEL and RepoForge
+- name: Install EPEL and RepoForge repositories
   become: yes
   yum:
-    name: "{{ item }}"
+    name: "{{ packages }}"
     state: present
-  with_items:
+  vars:
+    packages:
       - "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
       - "http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm"
+  when: ansible_distribution_major_version < '8'
 
 - name: Install packages for OVS building
   become: yes
   yum:
-    name: "{{ item }}"
+    name: "{{ packages }}"
     state: present
-  with_items:
+  vars:
+    packages:
       - "dh-autoreconf"
       - "openssl-devel"
       - "python-devel"
@@ -38,27 +41,84 @@
       - "selinux-policy-devel"
       - "http://mirror.centos.org/centos/7/os/x86_64/Packages/python-zope-interface-4.0.5-4.el7.x86_64.rpm"
       - "http://mirror.centos.org/centos/7/os/x86_64/Packages/python-twisted-core-12.2.0-4.el7.x86_64.rpm"
+  when: ansible_distribution_major_version < '8'
+
+- name: Install RPM packages for OVS building
+  become: yes
+  dnf:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - "createrepo"
+      - "desktop-file-utils"
+      - "gcc-c++"
+      - "git"
+      - "graphviz"
+      - "libcap-ng-devel"
+      - "libtool"
+      - "make"
+      - "openssl-devel"
+      - "python3-devel"
+      - "rpm-build"
+      - "selinux-policy-devel"
+      - "unbound"
+      - "unbound-devel"
+  when: ansible_distribution_major_version >= '8'
+
+- name: Set system /usr/bin/python
+  become: yes
+  command: "/sbin/alternatives --set python /usr/bin/python3"
+  when: ansible_distribution_major_version >= '8'
+
+- name: Install PyPi packages for OVS building
+  become: yes
+  pip:
+    name: "{{ packages }}"
+    state: present
+    extra_args: '--install-option="--prefix=/usr"'
+  vars:
+    packages:
+      - "sphinx"
+      - "twisted"
+      - "zope.interface"
+  when: ansible_distribution_major_version >= '8'
 
 - name: Clone OVS
   git:
     repo: "http://github.com/openvswitch/ovs"
     dest: "{{ ansible_env.HOME }}/ovs"
+    depth: 1
+    force: 1
     accept_hostkey: true
   retries: 3
   delay: 60
 
-- name: Set high epoch
-  become: yes
-  shell: |
-      sed -i '/License/a Epoch: 2' {{ ansible_env.HOME }}/ovs/rhel/openvswitch-fedora.spec.in
+- name: Set high epoch in spec file
+  replace:
+    dest: "{{ ansible_env.HOME }}/ovs/rhel/openvswitch-fedora.spec.in"
+    regexp: '^(License.*\n)'
+    replace: '\1Epoch: 2\n'
 
-- name: Build OVS
+- name: Adapt spec file
+  lineinfile:
+    dest: "{{ ansible_env.HOME }}/ovs/rhel/openvswitch-fedora.spec.in"
+    state: absent
+    regexp: '^BuildRequires:.*(py.*-devel|groff|sphinx-build|-six|-twisted-core|-zope-interface)|PYTHON=|^%{python2_sitelib}|dir}.*bugtool|ovs-dpctl-top$|ovs-.*test$|ovs-l3ping$'
+  when: ansible_distribution_major_version >= '8'
+
+- name: Bootstrap OVS
   args:
-      chdir: "{{ ansible_env.HOME }}/ovs"
-  shell: "./boot.sh && ./configure && make rpm-fedora"
+    chdir: "{{ ansible_env.HOME }}/ovs"
+  command: "./boot.sh && ./configure"
+
+- name: Build OVS RPM
+  args:
+    chdir: "{{ ansible_env.HOME }}/ovs"
+  command: "make rpm-fedora {%- if ansible_distribution_major_version >= '8' -%}RPMBUILD_OPT='--without check --with build_python3'{%- endif -%}"
 
 # Create a directory to hold the RPMs
-- name: Create '/patched_rpms' directory`
+- name: Create '/patched_rpms' directory
   become: yes
   file:
     path=/patched_rpms
@@ -68,11 +128,11 @@
 - name: Copy new generated RPMs to /patched_rpms
   shell: "cp {{ ansible_env.HOME }}/ovs/rpm/rpmbuild/RPMS/{{ item }}/*.rpm /patched_rpms/"
   with_items:
-      - 'noarch'
-      - 'x86_64'
+    - 'noarch'
+    - 'x86_64'
 
 - name: Create repository for patched RPMs
-  shell: "createrepo /patched_rpms;"
+  command: "createrepo /patched_rpms"
 
 - name: Setup repository in /etc/yum.repos.d
   become: yes
