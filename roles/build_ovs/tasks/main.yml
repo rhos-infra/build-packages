@@ -110,12 +110,17 @@
 - name: Bootstrap OVS
   args:
     chdir: "{{ ansible_env.HOME }}/ovs"
-  command: "./boot.sh && ./configure"
+  command: "./boot.sh"
+
+- name: Initial OVS configure
+  args:
+    chdir: "{{ ansible_env.HOME }}/ovs"
+  command: "./configure"
 
 - name: Build OVS RPM
   args:
     chdir: "{{ ansible_env.HOME }}/ovs"
-  command: "make rpm-fedora {%- if ansible_distribution_major_version >= '8' -%}RPMBUILD_OPT='--without check --with build_python3'{%- endif -%}"
+  command: "make rpm-fedora {%- if ansible_distribution_major_version >= '8' -%} RPMBUILD_OPT='--without check --with build_python3'{%- endif -%}"
 
 # Create a directory to hold the RPMs
 - name: Create '/patched_rpms' directory
