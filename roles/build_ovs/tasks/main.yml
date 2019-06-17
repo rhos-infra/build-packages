@@ -118,13 +118,11 @@
   command: "./configure"
 
 - name: Build OVS RPM
-  args:
+  make:
     chdir: "{{ ansible_env.HOME }}/ovs"
-  command:
-    argv:
-      - make
-      - rpm-fedora
-      - "RPMBUILD_OPT='{%- if ansible_distribution_major_version >= '8' -%}--without check --with build_python3{%- else -%}--without check{%- endif -%}'"
+    target: rpm-fedora
+    params:
+      RPMBUILD_OPT: "{%- if ansible_distribution_major_version >= '8' -%}--without check --with build_python3{%- else -%}--without check{%- endif -%}"
 
 # Create a directory to hold the RPMs
 - name: Create '/patched_rpms' directory
