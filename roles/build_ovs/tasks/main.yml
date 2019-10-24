@@ -82,6 +82,7 @@
       - "sphinx"
       - "twisted"
       - "zope.interface"
+      - "six"
   when: ansible_distribution_major_version >= '8'
 
 - name: Clone OVS
