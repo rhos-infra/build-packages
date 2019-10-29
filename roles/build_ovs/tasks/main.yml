@@ -104,7 +104,7 @@
   lineinfile:
     dest: "{{ ansible_env.HOME }}/ovs/rhel/openvswitch-fedora.spec.in"
     state: absent
-    regexp: '^BuildRequires:.*(py.*-devel|groff|sphinx-build|-six|-twisted-core|-zope-interface)|PYTHON=|^%{python2_sitelib}|dir}.*bugtool|ovs-dpctl-top$|ovs-.*test$|ovs-l3ping$'
+    regexp: '^BuildRequires:.*(py.*-devel|groff|sphinx-build|-six|-twisted-core|-zope-interface)'
   when: ansible_distribution_major_version >= '8'
 
 - name: Bootstrap OVS
