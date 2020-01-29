@@ -107,6 +107,14 @@
     regexp: '^BuildRequires:.*(py.*-devel|groff|sphinx-build|-six|-twisted-core|-zope-interface)'
   when: ansible_distribution_major_version >= '8'
 
+- name: Adapt spec file. Add openvswtchX as obsoletes
+  lineinfile:
+    dest: "{{ ansible_env.HOME }}/ovs/rhel/openvswitch-fedora.spec.in"
+    insertafter: '^Obsoletes: openvswitch.*'
+    line: "Obsoletes: openvswitch2.11 openvswitch2.10 openvswitch2.12 rhosp-openvswitch"
+  when: ansible_distribution_major_version >= '8'
+
+
 - name: Bootstrap OVS
   args:
     chdir: "{{ ansible_env.HOME }}/ovs"
