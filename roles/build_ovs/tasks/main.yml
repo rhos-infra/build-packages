@@ -100,14 +100,14 @@
     regexp: '^(License.*\n)'
     replace: '\1Epoch: 2\n'
 
-- name: Adapt spec file
+- name: Adapt spec file for BuildRequires
   lineinfile:
     dest: "{{ ansible_env.HOME }}/ovs/rhel/openvswitch-fedora.spec.in"
     state: absent
     regexp: '^BuildRequires:.*(py.*-devel|groff|sphinx-build|-six|-twisted-core|-zope-interface)'
   when: ansible_distribution_major_version >= '8'
 
-- name: Adapt spec file: add openvswitchX as Obsoletes
+- name: Adapt spec file to add openvswitchX as Obsoletes
   lineinfile:
     dest: "{{ ansible_env.HOME }}/ovs/rhel/openvswitch-fedora.spec.in"
     insertafter: '^Obsoletes: openvswitch.*'
