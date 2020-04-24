@@ -111,7 +111,7 @@
   lineinfile:
     dest: "{{ ansible_env.HOME }}/ovs/rhel/openvswitch-fedora.spec.in"
     insertafter: '^Obsoletes: openvswitch.*'
-    line: "Obsoletes: rhosp-openvswitch.* network-scripts-openvswitch.* openvswitch2.10 openvswitch2.11 openvswitch2.12"
+    line: "Obsoletes: rhosp-openvswitch network-scripts-openvswitch openvswitch2.10 openvswitch2.11 openvswitch2.12"
 
 
 - name: Bootstrap OVS
