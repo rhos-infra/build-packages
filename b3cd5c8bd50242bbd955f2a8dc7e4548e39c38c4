@@ -1,0 +1,9 @@
+Code-Review+2: Candido Campos Rivas <ccamposr@redhat.com>
+Code-Review+1: Bernard Cafarelli <bcafarel@redhat.com>
+Code-Review+2: Arie Bregman <abregman@redhat.com>
+Verified+1: Arie Bregman <abregman@redhat.com>
+Submitted-by: Arie Bregman <abregman@redhat.com>
+Submitted-at: Thu, 14 May 2020 23:00:44 +0000
+Reviewed-on: https://review.gerrithub.io/c/rhos-infra/build-packages/+/493339
+Project: rhos-infra/build-packages
+Branch: refs/heads/master
