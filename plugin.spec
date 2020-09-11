@@ -20,7 +20,7 @@ subparsers:
               options:
                   packages:
                       type: ListValue
-                      help: 'Comma seperated list of packages to install'
+                      help: 'Comma,separated list of packages to install'
             - title: Download packages
               options:
                   download-packages:

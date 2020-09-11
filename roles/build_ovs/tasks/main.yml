@@ -5,6 +5,7 @@
   yum:
     name: "{{ packages }}"
     state: present
+    disable_gpg_check: true
   vars:
     packages:
       - "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
@@ -17,6 +18,7 @@
     name: "{{ packages }}"
     state: present
     enablerepo: "epel*, rhelosp-rhel-*"
+    disable_gpg_check: true
   vars:
     packages:
       - "dh-autoreconf"
