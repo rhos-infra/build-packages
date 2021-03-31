@@ -73,6 +73,16 @@
   command: "/sbin/alternatives --set python /usr/bin/python3"
   when: ansible_distribution_major_version >= '8'
 
+- name: Install PyPi package for twisted
+  become: yes
+  pip:
+    name: "incremental"
+    state: present
+    extra_args: '--install-option="--prefix=/usr"'
+  vars:
+    packages:
+  when: ansible_distribution_major_version >= '8'
+
 - name: Install PyPi packages for OVS building
   become: yes
   pip:
