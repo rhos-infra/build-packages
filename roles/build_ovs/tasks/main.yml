@@ -81,6 +81,7 @@
     extra_args: '--install-option="--prefix=/usr"'
   vars:
     packages:
+      - "incremental"
       - "sphinx"
       - "twisted"
       - "zope.interface"
