@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a631c3ef_ddc249f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1016416
+      },
+      "writtenOn": "2021-04-01T13:49:14Z",
+      "side": 1,
+      "message": "I didn\u0027t see the \u0027build_ovs\u0027 stage in the test you ran, but it is passing with your change.",
+      "revId": "d7fcc775da54b2f57190a0ccfa3f97cc30ff72a7",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
