@@ -34,6 +34,24 @@
       "parentUuid": "a631c3ef_ddc249f6",
       "revId": "d7fcc775da54b2f57190a0ccfa3f97cc30ff72a7",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e98f659b_46fcc722",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1016416
+      },
+      "writtenOn": "2021-04-01T14:08:17Z",
+      "side": 1,
+      "message": "Yes, there it is.  I was looking at the \"console output\" link and didn\u0027t see it but just looking in the text log output it appears.  Thanks!",
+      "parentUuid": "788b43c2_6da69934",
+      "revId": "d7fcc775da54b2f57190a0ccfa3f97cc30ff72a7",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
