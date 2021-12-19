@@ -76,11 +76,15 @@
 - name: Install PyPi package for twisted
   become: yes
   pip:
-    name: "incremental"
+    name: "{{ item['name'] }}"
+    version: "{{ item['version'] }}"
     state: present
     extra_args: '--install-option="--prefix=/usr"'
-  vars:
-    packages:
+  loop:
+      - name: "incremental"
+        version: ""
+      - name: "typing-extensions"
+        version: "3.6.5"
   when: ansible_distribution_major_version >= '8'
 
 - name: Install PyPi packages for OVS building
