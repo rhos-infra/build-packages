@@ -19,7 +19,8 @@
 - name: Install rhos-release
   become: yes
   yum:
-    name: "http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm"
+    name: "https://url.corp.redhat.com/rhos-release-latest-rpm"
+    validate_certs: no
     disable_gpg_check: true
 
 - name: Execute rhos-release to install rhos repos
