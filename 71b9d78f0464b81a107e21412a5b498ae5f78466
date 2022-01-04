@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25b28cec_f7295c40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017596
+      },
+      "writtenOn": "2022-01-04T13:52:59Z",
+      "side": 1,
+      "message": "I\u0027ve succeed to execute `build ovs from source` stage in OSP16.2 job on staging Jenkins",
+      "revId": "71b9d78f0464b81a107e21412a5b498ae5f78466",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
