@@ -16,6 +16,23 @@
       "message": "recheck",
       "revId": "656b4e0ccb3e8d0621bdd23a06ccb97ecb4c6eae",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8838d27c_46ce3ef7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004788
+      },
+      "writtenOn": "2022-01-04T11:10:16Z",
+      "side": 1,
+      "message": "Maybe https://url.corp.redhat.com/rhos-release-latest-rpm ?",
+      "revId": "656b4e0ccb3e8d0621bdd23a06ccb97ecb4c6eae",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
