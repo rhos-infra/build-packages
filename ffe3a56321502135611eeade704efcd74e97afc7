@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f1d24e9_a5d0b168",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004788
+      },
+      "writtenOn": "2022-01-04T12:11:21Z",
+      "side": 1,
+      "message": "Once it\u0027s tested with at least one Director job, let\u0027s merge it.",
+      "revId": "ffe3a56321502135611eeade704efcd74e97afc7",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
