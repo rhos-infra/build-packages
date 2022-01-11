@@ -1,0 +1,8 @@
+Code-Review+1: Eran Kuris  <ekuris@redhat.com>
+Code-Review+2: Arie Bregman <abregman@redhat.com>
+Verified+1: Arie Bregman <abregman@redhat.com>
+Submitted-by: Arie Bregman <abregman@redhat.com>
+Submitted-at: Tue, 11 Jan 2022 11:35:03 +0000
+Reviewed-on: https://review.gerrithub.io/c/rhos-infra/build-packages/+/530366
+Project: rhos-infra/build-packages
+Branch: refs/heads/master
