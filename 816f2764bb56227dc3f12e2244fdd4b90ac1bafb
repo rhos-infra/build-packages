@@ -16,6 +16,23 @@
       "message": "We are testing this patch, don\u0027t merge it yet, please\nhttps://rhos-ci-staging-jenkins.lab.eng.tlv2.redhat.com/view/DFG/view/network/view/neutron/job/DFG-network-neutron-16.2_director-rhel-virthost-3cont_2comp-ipv4-vxlan-ovs-from-source-ml2ovs-ovsfirewall/",
       "revId": "816f2764bb56227dc3f12e2244fdd4b90ac1bafb",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b040e54b_cf09c86f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017622
+      },
+      "writtenOn": "2022-02-28T07:58:21Z",
+      "side": 1,
+      "message": "the test on staging Jenkins passed",
+      "revId": "816f2764bb56227dc3f12e2244fdd4b90ac1bafb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
     }
   ]
 }
