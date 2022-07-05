@@ -50,6 +50,7 @@
   dnf:
     name: "{{ packages }}"
     state: present
+    enablerepo: "*-unittest"
   vars:
     packages:
       - "createrepo"
@@ -70,7 +71,7 @@
 
 - name: Set system /usr/bin/python
   become: yes
-  command: "/sbin/alternatives --set python /usr/bin/python3"
+  command: "ln -s /usr/bin/python3 /usr/bin/python -f"
   when: ansible_distribution_major_version >= '8'
 
 - name: Update pip version
