@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31ba0de0_cf8133e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1009495
+      },
+      "writtenOn": "2022-07-07T07:27:04Z",
+      "side": 1,
+      "message": "Looks good to me, I suppose you tested it locally (I tried in jenkins but this is not an infrared change)",
+      "revId": "f57faf051750f6d46ecf34f9c28fce75adcbe386",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735"
+    }
+  ]
+}
